@@ -1,0 +1,35 @@
+<mat-sidenav-container class="sidenav-container"  style="position: static;">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="true" autoFocus="false" [attr.role]="dialog" [mode]="side"
+        [opened]="!true" style="background-color:#22303E">
+        <!-- <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+        (closed)="events.push('close!')" style="background-color:#22303E"> -->
+        <mat-toolbar>
+            <img class="img-resposive" src="" alt="Logo">
+        </mat-toolbar>
+        <mat-nav-list>
+            <!-- <ng-material-multilevel-menu [configuration]='config' [items]='appitems'>
+            </ng-material-multilevel-menu> -->
+
+            <!-- <ng-material-multilevel-menu [configuration]='config' [items]='staticReports' (selectedItem)="navgatTo($event)">
+            </ng-material-multilevel-menu> -->
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <span><button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+                        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+                    </button></span>
+                <span class="example-spacer" style="flex: 1 1 auto;"></span>
+                <!-- <span routerLink="forms" routerLinkActive="active">Forms</span> -->
+                <!-- <span>fadsfasd {{userdetails.username}}</span> -->
+                <!-- <mat-icon class="example-icon" style="padding: 0 26px;" matBadge="9" matBadgeColor="warn">notifications</mat-icon>
+                <mat-icon class="example-icon" style="padding: 0 26px;" matBadge="3" matBadgeColor="warn">favorite</mat-icon>
+                <mat-icon class="example-icon" style="padding: 0 26px;" matBadge="15" matBadgePosition="after"
+                    matBadgeColor="accent">chat_bubble_outline</mat-icon> -->
+                <mat-icon class="example-icon" [routerLink]="['/login']" (click)="logout()">logout</mat-icon>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </mat-sidenav-content>
+</mat-sidenav-container>

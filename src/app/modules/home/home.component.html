@@ -1,0 +1,60 @@
+<!-- *ngIf="filtersLoaded | async" -->
+<div class="container-fluid" style="margin-top:2rem;">
+  <div class="row">
+      <div class="col-md-1"><button class="btn btn-sm btn-success" (click)="show1()">Reading L JSON</button></div>
+      <div class="col-md-1"><button class="btn btn-sm btn-secondary" (click)="show2()">Sharing Data</button></div>
+  </div>
+
+  <!-- Creating service and calling JSON from local file and displaying the data -->
+  
+  <div class="row" *ngIf="show1Property" style="margin-top:2rem;">
+    <div class="col-md-1">
+      <ul style="list-style: none;padding-left:0rem; ">
+        <li *ngFor="let emp_data of jsonData" style="margin: 5px 0px;"><button class="btn btn-sm btn-primary w-100" (click)="getUserdata(emp_data)">{{emp_data.name}}</button></li>
+        <li><button class="btn btn-sm btn-secondary w-100" style="margin-bottom: 5px;" (click)="getAllUsers()">All Users</button></li>
+      </ul>
+    </div>
+    <div class="col-md-9">
+      <table class="table table-bordered" *ngIf="showIndividual" >
+          <thead></thead>
+          <tbody>
+            <tr><th>Name</th><td>{{individualRecord.name}}</td></tr>
+            <tr><th>Role</th><td>{{individualRecord.role}}</td></tr>
+            <tr><th>Department Id</th><td>{{individualRecord.dept}}</td></tr>
+            <!-- <tr><th>Actions</th><td rowspan="2"><button class="btn btn-sm btn-primary">Edit</button></td><td><button class="btn btn-sm btn-primary">Delete</button></td></tr> -->
+          </tbody>
+      </table>
+
+      <table class="table table-bordered" *ngIf="showallUsers">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Department Id</th>
+            <th colspan="2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp_data of jsonData">
+            <td>{{emp_data.name}}</td>
+            <td>{{emp_data.role}}</td>
+            <td>{{emp_data.dept}}</td>
+            <td><button class="btn btn-sm btn-primary" (click)="editUser(emp_data.id)">Edit</button></td>
+            <td><button class="btn btn-sm btn-primary" (click)="deleteUser(emp_data.id)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-2">fdfdf</div>
+  </div>
+  
+  <!-- Trying to share data between components -->
+
+  <div class="row" *ngIf="show2Property" style="margin-top:2rem;">
+      <div class="col-md-6"><app-parent></app-parent></div>
+      <div class="col-md-6"><app-child></app-child></div>
+  </div>
+
+</div>
+
+
